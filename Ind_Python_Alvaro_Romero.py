@@ -162,6 +162,22 @@ ax.set(xlabel = 'Month of the year', ylabel = 'Total count of bikes', title = 'T
 ax.set_xticklabels(['Jan','Feb','Mar','Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'])
 plt.show()
 
+#Bike rentals among seasons
+# Number of bikes rented per season
+fig, ax = plt.subplots()
+plot = sns.barplot('yr',
+                   'cnt',
+                   hue = 'season',
+                   data = daily,
+                   ci = None,
+                   palette=season_col,
+                   estimator = sum)
+ax.set(xlabel = 'Year', ylabel = 'Bikes rented',title = 'Bikes rented per year and per season')
+ax.set_xticklabels(['2011', '2012'])
+leg_handles = ax.get_legend_handles_labels()[0]
+ax.legend(leg_handles, ["Winter", "Spring", "Summer", "Autumn"])
+plt.show()
+
 
 
 
