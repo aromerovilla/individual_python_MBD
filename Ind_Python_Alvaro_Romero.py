@@ -17,6 +17,44 @@ def read_data(input_path):
 raw = read_data('https://gist.githubusercontent.com/aromerovilla/7170e4ff45dd943af6a920d2f510cd0f/raw/b5732e3122ca9d0dec95717b62434e2b68e642b6/hour.csv')
 raw.info()
 
+#Data Exploration
+
+daily = raw.compute()
+
+# Configuring plotting visual and sizes
+sns.set_style('white')
+sns.set_context('talk')
+params = {'legend.fontsize': 'x-large',
+          'figure.figsize': (30, 10),
+          'axes.labelsize': 'x-large',
+          'axes.titlesize':'x-large',
+          'xtick.labelsize':'x-large',
+          'ytick.labelsize':'x-large'}
+
+plt.rcParams.update(params)
+
+#Daily bike rentals
+
+trace = go.Scatter(x=list(daily.dteday),
+                   y=list(daily.cnt))
+
+chart_1 = [trace]
+layout = dict(
+    title='Daily bike rentals over time',
+    xaxis=dict(
+        rangeselector=dict(
+        ),
+        rangeslider=dict(
+            visible = True
+        ),
+        type='date'
+    )
+)
+
+fig = dict(data=chart_1, layout=layout)
+py.iplot(fig)
+
+
 #Data preparation
 
 selected = ['season', 'yr', 'mnth', 'hr', 'holiday', 'weekday', 'workingday', 'weathersit', ]
