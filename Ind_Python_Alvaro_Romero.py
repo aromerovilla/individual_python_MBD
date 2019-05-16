@@ -78,6 +78,41 @@ chart5 = [dict(
 
 off.iplot({'data': chart5}, validate=False)
 
+season_col = ["#749ee8", '#ffc9b9','#e69479','#b2d7ff']
+month_col = ["#749ee8","#749ee8","#749ee8", '#ffc9b9','#ffc9b9','#ffc9b9','#e69479','#e69479','#e69479','#b2d7ff','#b2d7ff','#b2d7ff']
+
+y0 = daily['casual']
+y1 = daily['registered']
+y2 = daily['cnt']
+
+trace0 = go.Box(
+    y=y0,
+    name = 'Casual',
+    marker = dict(
+        color = 'rgb(255, 107, 161)',
+    ),
+    boxmean=True
+)
+trace1 = go.Box(
+    y=y1,
+    name = 'Registered',
+    marker = dict(
+        color = 'rgb(107, 208, 255)',
+    ),
+    boxmean=True
+)
+trace2 = go.Box(
+    y=y2,
+    name = 'Total',
+    marker = dict(
+        color = 'rgb(107, 255, 216)',
+    ),
+    boxmean=True
+)
+chart = [trace0, trace1, trace2]
+py.iplot(chart)
+
+
 
 #Data preparation
 
