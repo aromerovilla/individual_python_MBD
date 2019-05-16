@@ -54,9 +54,7 @@ In order to detect a general trend that might be related to temperature we creat
 
 I split the data to train it.
 
-5.2 Logistic Regression
-
-5.3 Linear Regression
+5.2 Linear Regression
 
 Bike rentals among the months
 
