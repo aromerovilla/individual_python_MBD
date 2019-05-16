@@ -204,7 +204,16 @@ ax.legend(leg_handles, ["Non-working day", "Working day"])
 ax.set(xlabel = 'Hour of the day', ylabel = 'Average count of bikes',title = 'Average count of bikes per hour for working days vs weekend for casual users')
 plt.show()
 
-
+#  Effect of temperature on bike rentals
+fig, ax = plt.subplots()
+sns.regplot(x = daily["temp"],
+            y = daily["cnt"],
+            fit_reg = True,
+            ci = 100,
+            truncate = True,
+            color = 'DarkRed')
+ax.set(xlabel = 'Temperature', ylabel = 'Total count of bikes',title = 'Number of bikes year rented in function of the temperature')
+plt.show()
 
 
 #Data preparation
