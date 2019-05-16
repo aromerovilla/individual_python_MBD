@@ -190,6 +190,20 @@ g.legend(leg_handles, ["Winter", "Spring", "Summer", "Autumn"])
 g.set(xlabel = 'Hour of the day', ylabel = 'Total count of bikes', title = 'Total count of bikes per hour of the day for each season')
 plt.show()
 
+# Casual users during working and non-working days
+fig, ax = plt.subplots()
+wor_week_plot = sns.pointplot(data = daily[['hr',
+                                           'casual',
+                                           'workingday']],
+                              x = 'hr',
+                              y = 'casual',
+                              hue = 'workingday',
+                              estimator = np.average)
+leg_handles = ax.get_legend_handles_labels()[0]
+ax.legend(leg_handles, ["Non-working day", "Working day"])
+ax.set(xlabel = 'Hour of the day', ylabel = 'Average count of bikes',title = 'Average count of bikes per hour for working days vs weekend for casual users')
+plt.show()
+
 
 
 
