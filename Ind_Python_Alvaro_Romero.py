@@ -1,4 +1,3 @@
-#Libraries
 from dask_ml.preprocessing import DummyEncoder, Categorizer
 import dask.array as da
 import dask.dataframe as dd
@@ -8,6 +7,22 @@ from dask_glm.datasets import make_classification
 from dask_ml.linear_model import LogisticRegression, LinearRegression
 from sklearn.linear_model import ElasticNet
 from dask_ml.wrappers import ParallelPostFit
+from dask_ml.metrics import mean_absolute_error, mean_squared_error, accuracy_score
+
+
+#Plotly libraries
+import plotly
+import plotly.plotly as py
+import plotly.graph_objs as go
+import plotly.figure_factory as ff
+import plotly.offline as off
+import cufflinks
+import seaborn as sns
+import matplotlib.pyplot as plt
+from datetime import datetime
+
+#Since I do not have an account in plotly I am using a friends account
+plotly.tools.set_credentials_file(username='jonathan.serrano', api_key='VyUUK0fKh5hP04W2G62T')
 
 #Data Loading
 def read_data(input_path):
