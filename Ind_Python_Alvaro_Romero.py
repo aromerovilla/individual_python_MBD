@@ -140,6 +140,13 @@ figure.iplot()
 
 
 
+#Relationship of weather variables
+#scatterplot for weather data
+sns.set()
+cols = ['weathersit','temp','atemp','hum','windspeed']
+sns.pairplot(daily[cols], size = 2.5)
+plt.show();
+
 
 #Data preparation
 
