@@ -112,6 +112,33 @@ trace2 = go.Box(
 chart = [trace0, trace1, trace2]
 py.iplot(chart)
 
+#Correlation Matrix
+
+#Variables for correlation matrix
+df=daily[['season',
+                  'mnth',
+                  'hr',
+                  'holiday',
+                  'weekday',
+                  'workingday',
+                  'weathersit',
+                  'temp',
+                  'atemp',
+                  'hum',
+                  'windspeed',
+                  'cnt']]
+
+corrs = df.corr()
+figure = ff.create_annotated_heatmap(
+    z=corrs.values,
+    x=list(corrs.columns),
+    y=list(corrs.index),
+    annotation_text=corrs.round(2).values,
+    showscale=True)
+
+figure.iplot()
+
+
 
 
 #Data preparation
