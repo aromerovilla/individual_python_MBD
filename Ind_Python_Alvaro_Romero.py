@@ -178,6 +178,18 @@ leg_handles = ax.get_legend_handles_labels()[0]
 ax.legend(leg_handles, ["Winter", "Spring", "Summer", "Autumn"])
 plt.show()
 
+# Total bike rentals per hour - Season breakdown
+g = sns.pointplot(data = daily[['hr', 'cnt','season']],
+                  x = 'hr',
+                  y = 'cnt',
+                  hue = 'season',
+                  legend_out = True,
+                  estimator = sum)
+leg_handles = g.get_legend_handles_labels()[0]
+g.legend(leg_handles, ["Winter", "Spring", "Summer", "Autumn"])
+g.set(xlabel = 'Hour of the day', ylabel = 'Total count of bikes', title = 'Total count of bikes per hour of the day for each season')
+plt.show()
+
 
 
 
