@@ -148,6 +148,23 @@ sns.pairplot(daily[cols], size = 2.5)
 plt.show();
 
 
+#Bike rentals per month
+
+fig, ax = plt.subplots()
+monthly_plot = sns.barplot(data = daily[['mnth',
+                                        'cnt']],
+                           x = 'mnth',
+                           y = 'cnt',
+                           ci = None,
+                           palette=month_col,
+                           estimator = sum)
+ax.set(xlabel = 'Month of the year', ylabel = 'Total count of bikes', title = 'Total count of bikes per month')
+ax.set_xticklabels(['Jan','Feb','Mar','Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'])
+plt.show()
+
+
+
+
 #Data preparation
 
 selected = ['season', 'yr', 'mnth', 'hr', 'holiday', 'weekday', 'workingday', 'weathersit', ]
