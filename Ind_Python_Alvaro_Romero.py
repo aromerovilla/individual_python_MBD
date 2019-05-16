@@ -54,6 +54,30 @@ layout = dict(
 fig = dict(data=chart_1, layout=layout)
 py.iplot(fig)
 
+daily_cum = daily.copy()
+daily_cum['cumu'] = daily_cum.cnt.cumsum()
+daily_cum['cumu_c'] = daily_cum.casual.cumsum()
+daily_cum['cumu_r'] = daily_cum.registered.cumsum()
+
+off.init_notebook_mode(connected=False)
+
+chart5 = [dict(
+  type = 'scatter',
+  x = daily_cum.dteday,
+  y = daily_cum.cumu,
+  transforms = [dict(
+    type = 'aggregate',
+    groups = daily_cum.dteday,
+    aggregations = [dict(
+        target = 'y', func = 'sum', enabled = True),
+    ]
+  )]
+)]
+
+
+
+off.iplot({'data': chart5}, validate=False)
+
 
 #Data preparation
 
