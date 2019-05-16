@@ -52,7 +52,7 @@ In order to detect a general trend that might be related to temperature we creat
 
 5.1 Splitting Data
 
-I split the data to train it.
+I split the data to train it. I have divided it into X_train, X_test, y_train, y_test and fit the algorithm to do a linear regressiojn
 
 5.2 Linear Regression
 
