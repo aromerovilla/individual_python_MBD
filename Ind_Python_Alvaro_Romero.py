@@ -247,20 +247,13 @@ X, y = make_classification(n_samples=10000, n_features=2)
 X = dd.from_dask_array(X, columns=['instance','cnt'])
 y = dd.from_array(y)
 
-#Logistic Regression
-
-lr = LogisticRegression()
-lr.fit(X.values, y.values)
-
-el = ParallelPostFit(estimator=ElasticNet())
-el.fit(X_train, y_train)
-preds = el.predict(X_test)
-
 #Linear Regression
 
 lr = LinearRegression()
-lr.fit(X.values, y.values)
+lr.fit(X_train.values, y_train.values)
 
-el = ParallelPostFit(estimator=ElasticNet())
-el.fit(X_train, y_train)
-preds = el.predict(X_test)
+pred=lr.predict(X_test.values)
+print(mean_squared_error(y_test.values, pred))
+
+pred=lr.predict(X_test.values)
+print(mean_absolute_error(y_test.values, pred))
