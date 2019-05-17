@@ -2,6 +2,8 @@
 
 Link to my GitHub https://github.com/aromerovilla/individual_python_MBD
 
+To run the code you need to pip install dask.ml
+
 In this assigment I am rewritting into Dask the Bicycle machine learning assigment done with pandas.
 
 For the ploting I used .compute() so I am able to plot graphs.
