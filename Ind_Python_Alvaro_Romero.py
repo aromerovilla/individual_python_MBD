@@ -271,4 +271,5 @@ pred=lr.predict(X_test.values)
 print(mean_squared_error(y_test.values, pred))
 
 pred=lr.predict(X_test.values)
-print(mean_absolute_error(y_test.values, pred))
+print(f"MSE is {mean_absolute_error(y_test.values, pred)}")
+print(f"RMSE is {mean_absolute_error(y_test.values, pred)**(1/2)}")
