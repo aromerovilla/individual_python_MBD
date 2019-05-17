@@ -268,8 +268,8 @@ lr = LinearRegression()
 lr.fit(X_train.values, y_train.values)
 
 pred=lr.predict(X_test.values)
-print(mean_squared_error(y_test.values, pred))
+print(f"MSE is {mean_squared_error(y_test.values, pred)}")
+print(f"RMSE is {mean_squared_error(y_test.values, pred)**(1/2)}")
 
 pred=lr.predict(X_test.values)
-print(f"MSE is {mean_absolute_error(y_test.values, pred)}")
-print(f"RMSE is {mean_absolute_error(y_test.values, pred)**(1/2)}")
+print(f"MAE is {mean_absolute_error(y_test.values, pred)}")
